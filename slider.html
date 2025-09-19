@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="layout">
+  <!-- SLIDER (lado esquerdo) -->
+  <div class="slider">
+    <div class="slides">
+      <input type="radio" name="radio-btn" id="slide1" checked>
+      <input type="radio" name="radio-btn" id="slide2">
+      <input type="radio" name="radio-btn" id="slide3">
+
+      <div class="slide first">
+        <img src="assets/img/Captura de tela_22-1-2025_113214_drive.google.com.jpeg" alt="">
+      </div>
+      <div class="slide">
+        <img src="https://via.placeholder.com/350x200?text=Slide+2" alt="">
+      </div>
+      <div class="slide">
+        <img src="https://via.placeholder.com/350x200?text=Slide+3" alt="">
+      </div>
+
+      <!-- Navegação automática -->
+      <div class="navigation-manual">
+        <label for="slide1" class="manual-btn"></label>
+        <label for="slide2" class="manual-btn"></label>
+        <label for="slide3" class="manual-btn"></label>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIMELINE (lado direito) -->
+  <div class="timeline" id="link-ancora">
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h3>Mestre em Ortodontia</h3>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h3>Doutora em Biopatologia Bucal</h3>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h3>Pós Graduada em Tecnologias Biofísicas Aplicadas à Saúde</h3>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+    /* Layout principal */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* -------- SLIDER -------- */
+.slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.slides {
+  width: 300%;
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.slides input {
+  display: none;
+}
+
+.slide {
+  width: 100%;
+  flex: 1 0 100%;
+}
+
+.slide img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Navegação manual */
+.navigation-manual {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  bottom: 10px;
+  gap: 10px;
+}
+
+.manual-btn {
+  border: 2px solid white;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.manual-btn:hover {
+  background: white;
+}
+
+/* Radio controla os slides */
+#slide1:checked ~ .first { margin-left: 0; }
+#slide2:checked ~ .first { margin-left: -100%; }
+#slide3:checked ~ .first { margin-left: -200%; }
+
+/* -------- TIMELINE -------- */
+.timeline {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 50px;
+  position: relative;
+  padding: 20px 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%; /* centraliza */
+  width: 4px;
+  height: 100%;
+  background-color: #9da08b;
+  transform: translateX(-50%);
+}
+
+
+.timeline-item {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.timeline-content {
+  width: 80%;
+  padding: 20px;
+  margin-left: 30px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .timeline {
+    margin: 0 auto;
+  }
+}
+
+</style>
+</body>
+</html>
+
+
+
+
+
+
+
+
